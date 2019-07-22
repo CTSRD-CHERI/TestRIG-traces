@@ -1,0 +1,6 @@
+# 
+.4byte 0x400041b7 # lui r3, 262148
+.4byte 0x119193 # slli r3, r3, 1
+.4byte 0x218133 # add r2, r3, r2
+.4byte 0xf821025b # SQddc r2, r2[0]
+
