@@ -1,0 +1,5 @@
+# Automatically generated failing test case
+.4byte 0xbff00113 # addi r2, r0, 3071
+.4byte 0x3c1005b # cspecialrw r0, r2, 28
+.4byte 0x3c2025b # cspecialrw r4, r4, 28
+
