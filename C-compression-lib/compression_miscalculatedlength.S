@@ -1,4 +1,4 @@
-# This is an error in the cc128_setbounds_impl funtion of cheri-compressed-cap library, in this case the top should be 0x1 0000..., but it ends up being 0, which causes a negative length to be returned. This error is present in cheri-compressed-cap: 6f5e9c759df80740e5502911391bc9e96953481b
+# This is an error in the cc128_setbounds_impl funtion of cheri-compressed-cap library, in this case the top should be 0x1 0000..., but it ends up being 0, which causes a negative length to be returned. This error is present in cheri-compressed-cap: 6f5e9c759df80740e5502911391bc9e96953481b. This trace was corrected in cheri-compressed-cap: f4b2b62c64402b9030b259016c04f350fc81c58d. Also this fix was included in Spike: ffa76d169f2adff18b1cc8322f3524d114a0e47a
 
 .4byte 0x102d113 # srli r2, r5, 16
 .4byte 0x201100db # csetaddr r1, r2, r1
