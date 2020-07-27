@@ -1,5 +1,5 @@
 # Trapping when your MTCC is invalid
-.4byte andi r1, r1, 255
+#.4byte andi r1, r1, 255
 .4byte 0x400042b7 # lui r5, 262148
 .4byte 0x129293 # slli r5, r5, 1
 .4byte 0x1280b3 # add r1, r5, r1
