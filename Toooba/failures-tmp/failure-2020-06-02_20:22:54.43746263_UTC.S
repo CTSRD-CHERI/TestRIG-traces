@@ -1,0 +1,8 @@
+# Automatically generated failing test case
+.shrink
+.4byte 0x0cf90113 # addi x2, x18, 207
+.4byte 0x1a2088db # candperm x17, x1, x2
+.4byte 0x03c8885b # cspecialrw x16, mtcc, x17
+.4byte 0x020000db # cspecialrw x1, pcc, x0
+.noshrink
+.4byte 0x342020f3 # csrrs x1, mcause (0x342), x0

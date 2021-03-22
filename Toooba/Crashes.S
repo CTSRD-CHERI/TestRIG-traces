@@ -1,4 +1,4 @@
-# last failing test case:
+# Automatically generated failing test case
 .shrink
 .4byte 0x022980db # cspecialrw x1, 2, x19
 .4byte 0x020189db # cspecialrw x19, pcc, x3
