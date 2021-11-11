@@ -3,7 +3,7 @@ ansiColor('xterm') {
     def img
     stage("Clone TestRIG_exampleTraces repository") {
       checkout([$class: 'GitSCM',
-        userRemoteConfigs: [[url: 'https://github.com/CTSRD-CHERI/TestRIG_exampleTraces.git']],
+        userRemoteConfigs: [[credentialsId: 'github-app-cheri-jenkins', url: 'https://github.com/CTSRD-CHERI/TestRIG_exampleTraces.git']],
         extensions: [
           [$class: 'RelativeTargetDirectory',
            relativeTargetDir: 'TestRIG_exampleTraces'],
