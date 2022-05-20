@@ -1,0 +1,17 @@
+#Skipping any path or file that is hidden
+.*/\..*
+#Skipping labelled ignore files
+.*\.ignore
+.*\.exclude
+#Skipping CI files
+.*\.Jenkinsfile
+.*\.Dockerfile
+#Skipping source files
+.*\.hex
+.*\.sh
+.*\.md
+.*\.ld
+.*\.h
+.*\.src
+#Skipping TestRIG output
+.*\.tr
