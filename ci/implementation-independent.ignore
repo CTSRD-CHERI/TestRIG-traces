@@ -15,3 +15,11 @@
 .*\.src
 #Skipping TestRIG output
 .*\.tr
+#Unsupported assert trap
+.*/QEMU/bgeu-bounds-check.S
+.*/QEMU/ccsr-per-mode-value-trap-in-m.S
+.*/QEMU/branch-not-taken-pcc-fault.S
+.*/QEMU/bounds-check-jal.S
+.*/QEMU/ccsr-per-mode-value-trap-in-u.S
+.*/QEMU/ccsr-per-mode-value-trap-in-s.S
+.*/QEMU/jalr-missing-bounds-check.S

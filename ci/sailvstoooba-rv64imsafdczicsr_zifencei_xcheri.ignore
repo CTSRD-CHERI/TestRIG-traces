@@ -723,4 +723,3 @@
 .*/Piccolo/lengthRepresent.S
 .*/Piccolo/nmsub_zero.S
 .*/Piccolo/sqrt_rmm.S
-.*/QEMU/bgeu-bounds-check.S
