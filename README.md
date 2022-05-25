@@ -17,3 +17,6 @@ Please also add a comment using a line starting with at `#` character to documen
 
 If you want to add another implementation to the job, please add to the `configs` array in [this file](https://github.com/CTSRD-CHERI/TestRIG_exampleTraces/blob/master/ci/run-example-traces.Jenkinsfile).
 Also, make sure to add the appropriate `${name}.ignore` file.
+
+In case you have a directory full of trace files that you would like to ignore, I used this bash command to generate the initial Flute and Toooba ignore files:
+`grep -r "Generated from input file" . | cut -d'"' -f 2 | sed -e 's/^/\.\*/' | sort`
