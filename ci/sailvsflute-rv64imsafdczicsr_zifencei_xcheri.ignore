@@ -1,5 +1,11 @@
 #You can add comments to this file with lines starting with a hash
+# Flute sets the RVFI write mask for a failed store conditional
+# ---
 .*/Flute/Store_Conditional_Write_Mask.S
+.*/Flute/store_conditional_data.S
+# ---
+# Sail/Ibex legalises exception vector mode by masking bit 1, Flute sets to 0
+# ---
 .*/Flute/flutevssailexceptions2/failure959829.S
 .*/Flute/flutevssailexceptions2/failure995218.S
 .*/Flute/flutevssailexceptions3/failure99999551301.S
@@ -21,7 +27,13 @@
 .*/Flute/flutevssailnewpcc/failure9999781779.S
 .*/Flute/flutevssailnewpcc/failure9999785391.S
 .*/Flute/flutevssailnewpcc/failure9999861789.S
-.*/Flute/fp-rounding.S
+.*/Ibex/failure1920.S
+.*/Ibex/failure4043.S
+.*/Piccolo/CSpecialRWMasking.S
+.*/Piccolo/failure490783.S
+# ---
+# Different cause legalisation
+# ---
 .*/Flute/lost_cheri_cache/failure-2020-08-24_10:14:48.84183372_UTC.S
 .*/Flute/lost_cheri_cache/failure-2020-08-24_14:29:43.877880832_UTC.S
 .*/Flute/lost_cheri_cache/failure-2020-08-24_14:29:43.930161741_UTC.S
@@ -39,18 +51,14 @@
 .*/Flute/lost_cheri_cache/failure-2020-08-24_14:29:44.24106737_UTC.S
 .*/Flute/lost_cheri_cache/failure-2020-08-24_14:29:44.321283757_UTC.S
 .*/Flute/lost_cheri_cache/failure-2020-08-24_14:29:44.501894855_UTC.S
-.*/Flute/store_conditional_data.S
-.*/Ibex/failure1920.S
-.*/Ibex/failure4043.S
-.*/Piccolo/CSpecialRWMasking.S
-.*/Piccolo/PiccoloHang.S
-.*/Piccolo/Temp3.S
+# ---
+# Length on invalid caps (underivable branch)
+# ---
 .*/Piccolo/failure13980.S
 .*/Piccolo/failure23119.S
 .*/Piccolo/failure30980.S
 .*/Piccolo/failure34355.S
 .*/Piccolo/failure443515.S
-.*/Piccolo/failure490783.S
 .*/Piccolo/failure79824.S
 .*/Piccolo/failure82956.S
 .*/Piccolo/failure882367.S
@@ -60,9 +68,15 @@
 .*/Piccolo/failure929468.S
 .*/Piccolo/failure938352.S
 .*/Piccolo/failure981203.S
+.*/Piccolo/lengthRepresent.S
+# ---
+# Uncategorised
+# ---
+.*/Flute/fp-rounding.S
+.*/Piccolo/PiccoloHang.S
+.*/Piccolo/Temp3.S
 .*/Piccolo/fcvt_neg_subnormal.S
 .*/Piccolo/fcvt_wu_negzero.S
-.*/Piccolo/lengthRepresent.S
 .*/Piccolo/nmsub_zero.S
 .*/Piccolo/sqrt_rmm.S
 .*/QEMU/cbuildcap-reserved-bits.S
@@ -332,3 +346,4 @@
 .*/Toooba/unspecified/sc/failure-2020-06-03_06:50:46.041557674_UTC.S
 .*/Toooba/unspecified/sc/failure-2020-06-03_07:17:53.848875383_UTC.S
 .*/riscv-dv/rv64gc/disable_c.S
+# ---
