@@ -15,11 +15,11 @@
 # .4byte 0x9c0020f3 # (csrrs x1, uccsr (0x8c0), x0
 .4byte 0xfeb8825b # ccleartag x4, x17
 .assert trap == 0 "ccleartag should not trap"
-.4byte 0x101200db # csetbounds x1, x4, x1
-.assert trap == 1 "csetbounds should trap"
+.4byte 0x0000200f # clc cnull, 0(cnull)
+.assert trap == 1 "clc should trap"
 # Should have received trap in S-Mode:
 .4byte 0x143020f3 # (csrrs x1, stval (0x143), x0
-.assert rd_wdata == 0x82 "Expected tag violation"
+.assert rd_wdata == 0x0 "Expected tag violation (stval)"
 # QEMU was reporting the CHERI trap cause in all *ccsr registers:
 .4byte 0x9c0020f3 # (csrrs x1, sccsr (0x9c0), x0
 .assert rd_wdata == 0x3 "Should not report CHERI cause in sccsr"
