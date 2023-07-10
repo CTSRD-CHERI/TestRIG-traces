@@ -24,9 +24,11 @@
 .4byte 0x143020f3 # (csrrs x1, stval (0x143), x0
 .assert rd_wdata == 0x0 "Trap goes to m-mode, stval should be zero"
 .4byte 0x9c0020f3 # (csrrs x1, sccsr (0x9c0), x0
-.assert rd_wdata == 0x3 "Should not report CHERI cause in sccsr"
+.4byte 0x7fc0f093 # andi x1, x1, 0x7fc # encoding: [0x93,0xf0,0xc0,0x7f]
+.assert rd_wdata == 0x0 "Should not report CHERI cause in sccsr"
 .4byte 0x343020f3 # (csrrs x1, mtval (0x343), x0
 .assert rd_wdata == 0x0 "Expected tag violation (mtval)"
 .4byte 0xbc0020f3 # (csrrs x1, mccsr (0xbc0), x0
-.assert rd_wdata == 0x3 "Should not report CHERI cause in sccsr"
+.4byte 0x7fc0f093 # andi x1, x1, 0x7fc # encoding: [0x93,0xf0,0xc0,0x7f]
+.assert rd_wdata == 0x0 "Should not report CHERI cause in sccsr"
 .4byte 0x10200073 # sret

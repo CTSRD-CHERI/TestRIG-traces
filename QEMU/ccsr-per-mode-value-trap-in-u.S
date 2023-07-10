@@ -22,11 +22,14 @@
 .assert rd_wdata == 0x0 "Expected tag violation (stval)"
 # QEMU was reporting the CHERI trap cause in all *ccsr registers:
 .4byte 0x9c0020f3 # (csrrs x1, sccsr (0x9c0), x0
-.assert rd_wdata == 0x3 "Should not report CHERI cause in sccsr"
+.4byte 0x7fc0f093 # andi x1, x1, 0x7fc # encoding: [0x93,0xf0,0xc0,0x7f]
+.assert rd_wdata == 0x0 "Should not report CHERI cause in sccsr"
 .4byte 0x8c0020f3 # (csrrs x1, uccsr (0x8c0), x0
-.assert rd_wdata == 0x3 "Should not report CHERI cause in sccsr"
+.4byte 0x7fc0f093 # andi x1, x1, 0x7fc # encoding: [0x93,0xf0,0xc0,0x7f]
+.assert rd_wdata == 0x0 "Should not report CHERI cause in sccsr"
 # This should trap:
 .4byte 0x343020f3 # (csrrs x1, mtval (0x343), x0
 .4byte 0x343020f3 # (csrrs x1, mtval (0x343), x0
 .4byte 0xbc0020f3 # (csrrs x1, mccsr (0xbc0), x0
-.assert rd_wdata == 0x3 "Should not report CHERI cause in sccsr"
+.4byte 0x7fc0f093 # andi x1, x1, 0x7fc # encoding: [0x93,0xf0,0xc0,0x7f]
+.assert rd_wdata == 0x0 "Should not report CHERI cause in sccsr"
