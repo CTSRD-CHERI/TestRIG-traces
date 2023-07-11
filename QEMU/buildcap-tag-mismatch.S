@@ -1,0 +1,11 @@
+# Sail was returning a valid tag, qemu wasn't
+# Fixed a long time ago but trace was never committed
+#>QCVENGINE_TEST_V2.0
+.4byte 0x00010113 # addi x2, x2, 0
+#      Trap: False, PCWD: 0x0000000080000004, RD: 02, RWD: 0x0000000000000000, MA: 0x0000000000000000, MWD: 0x0000000000000000, MWM: 0b00000000, I: 0x0000000000010113 PRV_M XL:64 (addi x2, x2, 0)
+.4byte 0x3a21815b # cbuildcap x2, x3, x2
+#      Trap: False, PCWD: 0x0000000080000008, RD: 02, RWD: 0x0000000000000000, MA: 0x0000000000000000, MWD: 0x0000000000000000, MWM: 0b00000000, I: 0x000000003a21815b PRV_M XL:64 (cbuildcap x2, x3, x2)
+.4byte 0xfe4102db # cgettag x5, x2
+#  A < Trap: False, PCWD: 0x000000008000000c, RD: 05, RWD: 0x0000000000000001, MA: 0x0000000000000000, MWD: 0x0000000000000000, MWM: 0b00000000, I: 0x00000000fe4102db PRV_M XL:64 (cgettag x5, x2)
+#  B > Trap: False, PCWD: 0x000000008000000c, RD: 05, RWD: 0x0000000000000000, MA: 0x0000000000000000, MWD: 0x0000000000000000, MWM: 0b00000000, I: 0x00000000fe4102db PRV_M XL:64 (cgettag x5, x2)
+.assert rd_wdata == 1 "Should be valid after buildcap"
