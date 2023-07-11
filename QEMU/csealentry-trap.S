@@ -1,0 +1,6 @@
+# CSealEntry needed updating for tag-clearing
+#>QCVENGINE_TEST_V2.0
+.4byte 0xff10085b # csealentry x16, x0
+#  A < Trap: False, PCWD: 0x0000000080000004, RD: 16, RWD: 0x0000000000000000, MA: 0x0000000000000000, MWD: 0x0000000000000000, MWM: 0b00000000, I: 0x00000000ff10085b PRV_M XL:64 (csealentry x16, x0)
+#  B > Trap:  True, PCWD: 0x0000000000000000, RD: 00, RWD: 0x0000000000000000, MA: 0x0000000000000000, MWD: 0x0000000000000000, MWM: 0b00000000, I: 0x00000000ff10085b PRV_M XL:64 (csealentry x16, x0)
+.assert trap == 0 "Should not trap on untagged"
