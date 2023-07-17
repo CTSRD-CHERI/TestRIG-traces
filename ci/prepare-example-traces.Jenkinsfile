@@ -4,6 +4,7 @@ ansiColor('xterm') {
     stage("Clone TestRIG-traces repository") {
       checkout([$class: 'GitSCM',
         userRemoteConfigs: [[credentialsId: 'github-app-cheri-jenkins', url: 'https://github.com/CTSRD-CHERI/TestRIG-traces.git']],
+        branches: [[name: '*/main']],
         extensions: [
           [$class: 'RelativeTargetDirectory',
            relativeTargetDir: 'TestRIG-traces'],
