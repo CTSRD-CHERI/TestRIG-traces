@@ -1,17 +1,17 @@
 ansiColor('xterm') {
   node("docker") {
     def img
-    stage("Clone TestRIG_exampleTraces repository") {
+    stage("Clone TestRIG-traces repository") {
       checkout([$class: 'GitSCM',
-        userRemoteConfigs: [[credentialsId: 'github-app-cheri-jenkins', url: 'https://github.com/CTSRD-CHERI/TestRIG_exampleTraces.git']],
+        userRemoteConfigs: [[credentialsId: 'github-app-cheri-jenkins', url: 'https://github.com/CTSRD-CHERI/TestRIG-traces.git']],
         extensions: [
           [$class: 'RelativeTargetDirectory',
-           relativeTargetDir: 'TestRIG_exampleTraces'],
+           relativeTargetDir: 'TestRIG-traces'],
           [$class: 'CloneOption',
            noTags: true]]])
       }
-    stage("Build TestRIG_exampleTraces docker image") {
-      img = docker.build("ctsrd/testrig-exampletraces", "-f TestRIG_exampleTraces/ci/prepare-example-traces.Dockerfile --pull .")
+    stage("Build TestRIG-traces docker image") {
+      img = docker.build("ctsrd/testrig-traces", "-f TestRIG-traces/ci/prepare-example-traces.Dockerfile --pull .")
     }
     stage("Push TestRIG docker image to docker hub") {
       docker.withRegistry('https://registry.hub.docker.com',
