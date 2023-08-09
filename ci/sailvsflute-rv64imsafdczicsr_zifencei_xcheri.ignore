@@ -67,6 +67,7 @@
 .*/Piccolo/failure901234.S
 .*/Piccolo/failure929468.S
 .*/Piccolo/failure938352.S
+.*/Piccolo/failure973921.S
 .*/Piccolo/failure981203.S
 .*/Piccolo/lengthRepresent.S
 .*/Toooba/buildcap7/failure-2020-09-22_21:01:57.281271194_UTC.S
@@ -193,6 +194,19 @@
 .*/Toooba/unspecified/sc/failure-2020-05-21_18:57:44.046563866_UTC.S
 .*/Toooba/unspecified/sc/failure-2020-06-03_02:23:08.860895592_UTC.S
 .*/Toooba/unspecified/sc/failure-2020-06-03_02:39:10.480721281_UTC.S
+.*/Flute/Store_Conditional_Write_Mask.S
+# ---
+# Sail starts with fp enabled, Flute starts with it disabled
+# ---
+.*/QEMU/capmode-fsdsp-cscsp-fp-off.S
+.*/QEMU/capmode-fsdsp-cscsp-fp-on.S
+.*/QEMU/compressed-fld-as-clc.S
+.*/QEMU/fsh-missing-no-fpu-trap.S
+# ---
+# Some disagreement about FP negative vs positive zero?
+# ---
+.*/Toooba/fclass.s.S
+.*/Toooba/fmv.x.w.S
 # ---
 # Uncategorised
 # ---
